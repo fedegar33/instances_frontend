@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# instances_demo_frontend_fg
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
+
+The app consists of two pages(routes).
+A login form is displayed in the main page (/). If the user enter valid credentials then its redirected to /instances page
+and a table of instances is displayed. Table can be sorted and paginated as requested.
+The user can logout and is redirected to the main page.
+When an unauthorized user tries to visit /instanes page it will be redirected to the login page.
+When any user tries to enter a non existing page a "Not found" page will be displayed.
+
+I created a very simple REST Node backend which exposes two methods:
+
+- /login (POST) which receives a username and password as the body. Returns a JWT token if the user is valid.
+- /ec2instances which returns a list of EC2 instances if the proper JWT token is sent through an "Authorization" header. If JWT is invalid a 403 status code is returned.
+
+## Deployed app
+
+Go to: https://instance-demo-frontend-fg.herokuapp.com/
+
+Valid users that can login:
+
+- Username: test1@sample.com Password: 1234
+- Username: test2@sample.com Password: 4567
+
+## Backend info
+
+Backend is hosted here: https://instances-demo-fg.herokuapp.com/
+Backend repo is here: https://github.com/fedegar33/instances_backend
+
+## Stack
+
+I used the following tools:
+
+- React and create-react-app
+- Typescript
+- Material UI with styled components (used the sx prop a lot)
+- Jotai, to persiste the authenticated user data. I used atomWithStorage to persist the user auth token in local storage. Probably not the best approach but just for demo purposes.
+- Jest, react-testing-library and msw for unit testing.
+- Cypress for integration testing.
+- NodeJS, Express and JWT for the backend.
 
 ## Available Scripts
 
-In the project directory, you can run:
+Basic create-react-app scripts like: npm start, npm test, npm run build & npm run eject. I addd an npm run e2e command.
 
-### `npm start`
+## Tests
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+There are some unit tests (npm test) and a couple of integration tests (npm e2e).
+I dind't have time to create more tests but at least the login and the table is unit tested.
+Login and Logout funcionalities are covered by e2e testing(Cypress).
