@@ -15,7 +15,7 @@ const headCells: HeadCell[] = [
   { id: 'id', label: 'Id' },
   { id: 'size', label: 'Type' },
   { id: 'state', label: 'State' },
-  { id: 'az', label: 'Az' },
+  { id: 'az', label: 'Zone' },
   { id: 'publicIp', label: 'Public IP' },
   { id: 'privateIp', label: 'Private IP' }
 ]

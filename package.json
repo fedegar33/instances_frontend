@@ -1,5 +1,5 @@
 {
-  "name": "proj4",
+  "name": "instances_demo_frontend_fg",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,12 +8,14 @@
     "@mui/icons-material": "^5.6.0",
     "@mui/lab": "^5.0.0-alpha.77",
     "@mui/material": "^5.6.0",
+    "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.44",
     "@types/react-dom": "^18.0.1",
+    "cypress": "^9.5.4",
     "history": "^5.3.0",
     "jotai": "^1.6.3",
     "react": "^18.0.0",
@@ -27,13 +29,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "cypress run"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:cypress/recommended"
+
+    ],
+    "plugins": ["cypress"]
   },
   "browserslist": {
     "production": [
@@ -50,6 +56,7 @@
   "devDependencies": {
     "@types/node": "^17.0.25",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
     "msw": "^0.39.2",
     "prettier": "^2.6.2"
