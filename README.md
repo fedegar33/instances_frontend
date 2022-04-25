@@ -25,7 +25,7 @@ Valid users that can login:
 
 ## Backend info
 
-Backend is hosted here: https://instances-demo-fg.herokuapp.com/
+Backend is hosted here: https://instances-demo-fg.herokuapp.com
 Backend repo is here: https://github.com/fedegar33/instances_backend
 
 ## Stack
