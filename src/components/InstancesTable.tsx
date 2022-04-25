@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import TableContainer from '@mui/material/TableContainer'
 import Table from '@mui/material/Table'
-import TableCell from '@mui/material/TableCell/TableCell'
+import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import TableBody from '@mui/material/TableBody'
@@ -64,10 +64,10 @@ function InstancesTable({ instances, loading, error }: Props): JSX.Element {
       { loading
           ? <Box sx={{ display: 'flex', flexDirection: 'column', mt: 8 }}>
               <CircularProgress sx={{ alignSelf: 'center', mb: 2 }} />
-              <Typography>Loading instances</Typography>
+              <Typography role="paragraph">Loading instances</Typography>
             </Box>
           : error
-                ? <Typography sx={{ color: 'error.main' }}>{error}</Typography>
+                ? <Typography sx={{ color: 'error.main' }} role="alert">{error}</Typography>
                 : <Paper sx={{ width: '100%'}}>
                     <TableContainer>
                       <Table sx={{ minWidth: 650 }} size="small">
