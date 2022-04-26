@@ -6,7 +6,7 @@ import { setupServer } from 'msw/node'
 import Login from './Login'
 
 const server = setupServer(
-  rest.post('http://localhost:3001/login', (req, res, ctx) => {
+  rest.post(`${process.env.REACT_APP_API_URL}login`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json("myToken"))
   })
 )
@@ -53,7 +53,7 @@ describe('Login', () => {
 
   test('renders form validation error when both field are filled but login failed', async () => {
     server.use(
-      rest.post('http://localhost:3001/login', (req, res, ctx) => res(ctx.status(401), ctx.text('login failed')))
+      rest.post(`${process.env.REACT_APP_API_URL}login`, (req, res, ctx) => res(ctx.status(401), ctx.text('login failed')))
     )
 
     const usernameField = screen.getByRole('textbox', { name: /user name/i })
